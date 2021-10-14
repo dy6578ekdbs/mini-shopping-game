@@ -1,3 +1,4 @@
+/* root를 지정하면 변수처럼 사용 가능하다, 여기서만 수정하면 되니 편하다 */
 :root {
   /* color */
   --color-black: #3f454d;
@@ -6,8 +7,119 @@
   --color-yellow: #fbbe28;
   --color-pink: #fd7f84;
   --color-light-grey: #dfdfdf;
+  /* 사이즈 */
+  --size-button:60px;
+  --font-size:18px;
+  --base-space:8px;
+  --size-border:4px;
+  --size-thumbnail:50px;
+  /* 애니메이션 */
+  --annimation_duration: 300ms;
+
 }
+
 
 * {
   box-sizing: border-box;
+}
+
+body{
+  /* 윈도우의 100퍼센트 */
+  height: 100vh;
+  background-color: var(--color-black); 
+  /* 정렬 */
+  display: flex;
+  flex-direction: column;
+  /* 중앙 정렬 */
+  justify-content: center;
+  align-items: center;
+}
+
+
+.logo{
+  cursor: pointer;
+  /* 뭐지???? */
+  transition: transform var(--annimation_duration) ease;
+}
+
+.logo:hover{
+  /* 조금 커지게 */
+  transform: scale(1.1);
+}
+
+.buttons{
+  display: flex;
+  /* 높이 정렬 */
+  align-items: center;
+}
+
+.btn{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform var(--annimation_duration) ease;
+
+}
+.btn:hover{
+  transform: scale(1.1);
+}
+
+.imgBtn{
+  height: var(--size-button);
+  width: var(--size-button);
+}
+
+.colorBtn{
+  font-size: var(--font-size);
+
+  margin-right: var(--base-space);
+  /* calc()함수 */
+  padding: calc(var(--base-space) * 2);
+
+  border-radius: var(--size-border);
+}
+
+.blue{
+  background-color: var(--color-blue);
+}
+.yello{
+  background-color: var(--color-yellow);
+}
+.pink{
+  background-color: var(--color-pink);
+}
+
+
+.items{
+  width: 60%;
+  height: 60%;
+
+  list-style: none;
+  padding-left: 0;
+
+  /* 아이템 박스 안에서만 스크롤! */
+  overflow-y: scroll;
+  /* 스크롤 스타일 없애기 */
+  -ms-overflow-style: none;
+}
+.items::-webkit-scrollbar{
+  display: none;
+}
+.item{
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  padding:var(--base-space);
+  margin-bottom: var(--base-space);
+}
+
+.item__thumbnail{
+  width: var(--size-thumbnail);
+  height: var(--size-thumbnail);
+}
+
+.item__description{
+  margin-left: var(--base-space);
+  font-size: var(--font-size);
 }
